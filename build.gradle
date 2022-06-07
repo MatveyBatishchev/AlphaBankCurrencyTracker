@@ -25,6 +25,10 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    testImplementation 'junit:junit:4.13.2'
+
+
+
     // Annotation processor
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
@@ -37,8 +41,28 @@ dependencies {
     // Thymeleaf
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.7.0'
 
+    // WireMock
+    testImplementation 'com.github.tomakehurst:wiremock:2.27.2'
+
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+
+    testLogging {
+        // set options for log level LIFECYCLE
+        events "failed"
+        exceptionFormat "short"
+
+        // set options for log level DEBUG
+        debug {
+            events "started", "skipped", "failed"
+            exceptionFormat "full"
+        }
+
+        // remove standard output/error logging from --info builds
+        // by assigning only 'failed' and 'skipped' events
+        info.events = ["failed", "skipped", "started"]
+    }
+
 }

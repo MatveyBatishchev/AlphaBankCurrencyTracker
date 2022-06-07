@@ -37,9 +37,9 @@ public class GifService {
         LocalDate today = LocalDate.now();
         LocalDate yesterday = today.minusDays(1);
 
-        CurrencyRateRecord ydCurrencyRate = exchangeRatesClient.getCurrency(currencyRateApiKey,
+        CurrencyRateRecord ydCurrencyRate = exchangeRatesClient.getCurrencyRate(currencyRateApiKey,
                 today.toString(), currencyCode, baseCurrencyCode);
-        CurrencyRateRecord tdCurrencyRate = exchangeRatesClient.getCurrency(currencyRateApiKey,
+        CurrencyRateRecord tdCurrencyRate = exchangeRatesClient.getCurrencyRate(currencyRateApiKey,
                 yesterday.toString(), currencyCode, baseCurrencyCode);
 
         ydCurrencyRate.setParseDate(yesterday);

@@ -10,7 +10,7 @@ public interface GiphyClient {
 
     @GetMapping("v1/gifs/random")
     Gif getRandomGif(@RequestParam("api_key") String apiKey,
-                     @RequestParam("tag") String tag,
-                     @RequestParam("rating") String rating);
+                                @RequestParam("tag") String tag,
+                                @RequestParam("rating") String rating);
 
 }

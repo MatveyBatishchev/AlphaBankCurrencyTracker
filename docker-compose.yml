@@ -1,0 +1,15 @@
+version: '2'
+services:
+  alphabank-server:
+    container_name: alphabank-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: alphabank-server:latest
+    ports:
+      - 8080:8080
+    networks:
+      - spring-alphabank-network
+networks:
+  spring-alphabank-network:
+    driver: bridge
