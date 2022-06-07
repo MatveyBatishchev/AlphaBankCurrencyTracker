@@ -10,7 +10,7 @@ import ru.alphabank.currency_tracker.models.CurrencyRateRecord;
 public interface ExchangeRatesClient {
 
     @GetMapping("/historical/{date}.json")
-    CurrencyRateRecord getCurrency(@RequestParam("app_id") String appId,
+    CurrencyRateRecord getCurrencyRate(@RequestParam("app_id") String appId,
                                    @PathVariable("date") String date,
                                    @RequestParam("symbols") String currencyCodes,
                                    @RequestParam("base") String baseCurrencyCode);
